@@ -75,7 +75,7 @@ export default {
 
     methods: {
         submit() {
-            if (this.$v.userId !== "" && this.$v.password !== "") {
+            if (this.$v.userId !== null && this.$v.password !== null) {
                 if (this.$v.userId.$model == this.$parent.dummyAccount.userid && this.$v.password.$model == this.$parent.dummyAccount.password) {
                     alert('Success')
                     this.$emit('authenticated', true)
@@ -84,7 +84,7 @@ export default {
                     alert(`Wrong User ID: ${this.$parent.dummyAccount.userid} or Password: ${this.$parent.dummyAccount.password}`)
                 }
             } else {
-                alert('Required User ID or Password')
+                alert(`Required User ID or Password`)
             }
         },
     },
